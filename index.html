@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Vallidation using Java Script</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <h1>Password Vallidation Using Java Script</h1>
+    <div class="container">
+        <h4>User Name</h4>
+        <input type="text" id="usr" placeholder="Enter Your User Name" required>
+        <h4>Password</h4>
+        <input type="password" id="psw" placeholder="Enter Your password" pattern="(?=.*\d)(?=.\[a-z])(?=.*\[A-Z])(?=.*\[$@&#]).{8,}" title="Must container atleast one uppercase letter, one Lowercase, numbers, special symbols and 8 or more characters" required>
+       <button id="btn" class="btn1">Submit</button>
+    </div>
+    <div class="container1" id="message">
+        <h3>Password must contain below categories</h3>
+        <p id="one" class="main">1. At least one charater should be <spna>UpperCase</spna></p>
+        
+       <p id="two" class="main">2. At least one charater should be <spna>LowerCase</spna></p>
+       
+        <p id="three" class="main">3. At least one charater should be <spna>Numbers</spna></p>
+   
+        <p id="four" class="main">5.Minimum <spna>8 or more</spna> characters must have</p>
+       
+    </div>
+
+    
+ 
+
+    <script>
+        
+        let ps=document.getElementById("psw")
+       
+      
+
+        ps.onfocus=function(){
+            document.getElementById("message").style.display="block";
+        }
+        ps.onblur=function(){
+            document.getElementById("message").style.display="none";
+        }
+
+        ps.onkeyup=function(){
+            let up=/[A-Z]/g
+           
+            if(ps.value.match(up)){
+                one.classList.remove("main");
+                one.classList.add("main1");
+            
+            }else{
+                one.classList.remove("main1");
+                one.classList.add("main");
+               
+            }
+
+
+            let low=/[a-z]/g
+            if(ps.value.match(low)){
+            two.classList.remove("main");
+            two.classList.add("main1");
+             
+            }else{
+                two.classList.remove("main1");
+                two.classList.add("main");
+            
+            }
+
+
+            let num =/[0-9]/g
+            if(ps.value.match(num)){
+            three.classList.remove("main");
+            three.classList.add("main1");
+           
+       
+            }else{
+                three.classList.remove("main1");
+                three.classList.add("main");
+                
+                
+            }
+            
+            if(ps.value.length>=8){
+            four.classList.remove("main");
+            four.classList.add("main1");
+           
+        
+            }else{
+                four.classList.remove("main1");
+                four.classList.add("main");
+           
+                
+            }
+            
+            
+        }
+
+
+          
+
+
+    </script>
+  
+</body>
+</html>
